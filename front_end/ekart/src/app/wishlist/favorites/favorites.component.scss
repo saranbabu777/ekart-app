@@ -1,0 +1,23 @@
+.fav-list{
+  padding: 15px;
+
+  h6 {
+    padding: 15px 0;
+    margin: 0 auto;
+  }
+
+  .empty-cart{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .add-btn{
+    padding-top: 20px
+  }
+
+  .wishlist{
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}

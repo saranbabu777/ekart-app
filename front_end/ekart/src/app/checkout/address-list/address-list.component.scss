@@ -1,0 +1,35 @@
+.address-container {
+  h6 {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+  }
+
+  .address-content {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid #dddddd;
+
+    padding: 15px 0;
+
+    .radio-block {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+
+    .address-block {
+      width: 100%;
+    }
+  }
+
+  .add-new-address {
+    margin: 15px 0;
+  }
+
+  .proceed-button {
+    display: flex;
+    padding: 15px 0;
+    justify-content: flex-end
+  }
+}

@@ -1,0 +1,36 @@
+<div class="address-card">
+  <div class="address-block">
+    <div *ngIf="!isEdit else editForm;">
+      <div class="address-details">
+        <mat-icon>account_circle</mat-icon>
+        <span class="text-uppercase">
+          <b>{{addressForm['controls'].name.value}}</b>
+        </span>
+      </div>
+      <div class="address-details">
+        <mat-icon>phone</mat-icon>
+        <span>{{addressForm['controls'].phoneNumber.value}}</span>
+      </div>
+      <div class="address-details">
+        <mat-icon>home</mat-icon>
+        <span>{{addressForm['controls'].address.value}},
+          {{addressForm['controls'].city.value}},
+          {{addressForm['controls'].state.value}},
+          {{addressForm['controls'].pincode.value}}</span>
+      </div>
+    </div>
+    <div class="action-block">
+      <div class="button-group">
+        <button mat-raised-button color="primary" (click)="onModify()">
+          Edit
+        </button>
+        <button mat-raised-button color="warn" (click)="onDelete()">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <ng-template #editForm>
+    <app-address-form (cancelForm)="onDelete()" (saveForm)="saveForm()" [addressForm]="addressForm"></app-address-form>
+  </ng-template>
+</div>

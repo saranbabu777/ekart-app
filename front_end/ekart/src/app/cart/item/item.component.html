@@ -1,0 +1,43 @@
+<div class="item-container">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="full-width" src="assets/thumb/{{product.image}}.jpg" alt="" />
+    </div>
+    <div class="col-md-8">
+      <div class="caption">
+        <h6 class="text-uppercase">
+          {{product.name}}
+        </h6>
+        <p>
+          {{product.description}}
+        </p>
+        <div class="item-rate-count">
+          <div class="rate-group">
+            <b class="product-rate">₹{{calcPrice(product.rate, product.discount)}}</b>
+            <del>₹{{product.rate}}</del>
+            <p class="product-offer">{{product.discount}}% Off</p>
+          </div>
+          <div>
+            <mat-form-field class="count-form-fields">
+              <button matPrefix mat-button (click)="minus(product)" [disabled]="product.qty==0">
+                <mat-icon>remove_circle</mat-icon>
+              </button>
+              <input matInput type="text" [(ngModel)]="product.qty" />
+              <button matSuffix mat-button (click)="plus(product)">
+                <mat-icon>add_circle</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <div class="button-group">
+              <a mat-raised-button routerLink="/products/{{product.pid}}">View Details</a>
+              <button mat-raised-button color="primary" class="btn btn-success" (click)="removeItem()">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

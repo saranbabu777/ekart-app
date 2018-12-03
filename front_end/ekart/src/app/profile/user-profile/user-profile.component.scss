@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+
+  .avatar {
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+  }
+
+  .profile-card {
+    max-width: 400px;
+
+    .button-group {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        margin-left: 10px;
+      }
+    }
+  }
+}

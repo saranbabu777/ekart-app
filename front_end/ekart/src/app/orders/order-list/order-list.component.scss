@@ -1,0 +1,17 @@
+.order-list {
+  margin: 15px;
+  background: #fff;
+
+  table {
+    width: 100%;
+  }
+
+  .text-capitalize {
+    text-transform: capitalize;
+  }
+
+  .mat-header-cell {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

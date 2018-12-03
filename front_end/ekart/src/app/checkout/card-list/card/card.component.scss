@@ -1,0 +1,25 @@
+.card-card {
+  .card-block {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card-details {
+    display: flex;
+    padding: 5px;
+  }
+
+  .action-block {
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      margin: 5px auto;
+
+      button {
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

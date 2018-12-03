@@ -1,0 +1,13 @@
+<mat-card>
+  <div (click)="viewDetails(product.pid)" class="product">
+    <div class="product-header">
+      <div class="product-name">{{product.name}}</div>
+      <div class="product-rate"> ₹{{calcPrice(product.rate, product.discount)}}</div>
+    </div>
+    <img mat-card-image src="assets/thumb/{{product.image}}.jpg">
+    <mat-card-content>
+      <p class="text-center text-bold">{{product.name}}</p>
+      <p class="grey-color text-center"> {{product.discount}} %</p>
+    </mat-card-content>
+  </div>
+</mat-card>

@@ -1,0 +1,32 @@
+<div class="item-container">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="full-width" src="assets/thumb/{{product.image}}.jpg" alt="" />
+    </div>
+    <div class="col-md-8">
+      <div class="caption">
+        <h6 class="text-uppercase">
+          {{product.name}}
+        </h6>
+        <p>
+          {{product.description}}
+        </p>
+        <div class="item-rate-count">
+          <div class="rate-group">
+            <b class="product-rate">₹{{calcPrice(product.rate, product.discount)}}</b>
+            <del>₹{{product.rate}}</del>
+            <p class="product-offer">{{product.discount}}% Off</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <div class="button-group">
+              <a mat-raised-button (click)="moveToCart()" class="move-to-cart">Move to cart</a>
+              <button mat-raised-button color="primary" class="btn btn-success" (click)="removeItem()">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

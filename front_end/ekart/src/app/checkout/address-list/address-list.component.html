@@ -1,0 +1,20 @@
+<div class="address-container">
+  <div class="add-new-address">
+    <button mat-raised-button (click)="addNewAddress()">Add New Address</button>
+  </div>
+  <div *ngIf="addressForm" [formGroup]="addressForm">
+    <div formArrayName="address">
+      <div *ngFor="let address of address.controls; let i = index;">
+        <div class="address-content">
+          <div class="radio-block">
+            <mat-radio-button [value]="i" name="active" (change)="selectAddress(i)"></mat-radio-button>
+          </div>
+          <div class="address-block">
+            <app-address [addressForm]="address" (delete)="removeAddress(i)" [isEdit]="i===editableIndex" (save)="save()"
+              (modify)="onModifyAddress(i)"></app-address>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

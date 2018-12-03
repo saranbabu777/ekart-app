@@ -1,0 +1,87 @@
+<div class="reg-container">
+  <mat-card class="reg-form">
+    <h4 class="align-center">Register</h4>
+    <div class="required-field"> Please Complete All Fields</div>
+    <form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field class="full-width">
+            <input matInput type="text" formControlName="firstName" id="first-name" placeholder="First name">
+            <mat-error *ngIf="registrationForm.controls.firstName.invalid && (registrationForm.controls.firstName.dirty || registrationForm.controls.firstName.touched)">
+              First Name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-12">
+          <mat-form-field class="full-width">
+            <input matInput type="text" formControlName="lastName" id="last-name" placeholder="Last name">
+            <mat-error *ngIf="registrationForm.controls.lastName.invalid && (registrationForm.controls.lastName.dirty || registrationForm.controls.lastName.touched)">
+              Last Name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-12">
+          <mat-form-field class="full-width">
+            <input matInput type="text" formControlName="username" id="username" placeholder="Username">
+            <mat-error *ngIf="registrationForm.controls.username.invalid && (registrationForm.controls.username.dirty || registrationForm.controls.username.touched)">
+              Username is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-12">
+          <mat-form-field class="full-width">
+            <input matInput type="email" formControlName="email" id="email" placeholder="Email address">
+            <mat-error *ngIf="registrationForm.controls.email.invalid && (registrationForm.controls.email.dirty || registrationForm.controls.email.touched)">
+              Email is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-12">
+          <mat-form-field class="full-width">
+            <input matInput type="number" id="phone-number" formControlName="mobileNumber" placeholder="Phone number">
+            <mat-error *ngIf="registrationForm.controls.mobileNumber.invalid && (registrationForm.controls.mobileNumber.dirty || registrationForm.controls.mobileNumber.touched)">
+              <div *ngIf="registrationForm.controls.mobileNumber.errors.required">
+                Mobile Number is required.
+              </div>
+              <div *ngIf="registrationForm.controls.mobileNumber.errors.min || registrationForm.controls.mobileNumber.errors.max">
+                Enter valid Mobile Number
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-12">
+          <mat-form-field class="full-width">
+            <input matInput type="password" formControlName="password" id="pwd" placeholder="Password">
+            <mat-error *ngIf="registrationForm.controls.password.invalid && (registrationForm.controls.password.dirty || registrationForm.controls.password.touched)">
+              <div *ngIf="registrationForm.controls.password.errors.required">
+                Password is required.
+              </div>
+              <div *ngIf="registrationForm.controls.password.errors.minlength">
+                Password must be at least 5 characters long.
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-12">
+          <mat-form-field class="full-width">
+            <input matInput type="password" formControlName="confirmPassword" id="confirm-pwd" placeholder="Confirm password">
+            <mat-error *ngIf="registrationForm.controls.confirmPassword.invalid && (registrationForm.controls.confirmPassword.dirty || registrationForm.controls.confirmPassword.touched)">
+              <div *ngIf="registrationForm.controls.confirmPassword.errors.required">
+                Confirm Password is required.
+              </div>
+              <div *ngIf="registrationForm.controls.confirmPassword.errors.minlength">
+                Password must be at least 5 characters long.
+              </div>
+              <!-- <div *ngIf="errorMessage">
+                {{errorMessage}}
+              </div> -->
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row align-center">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!registrationForm.valid">Register</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

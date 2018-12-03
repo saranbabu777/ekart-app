@@ -1,0 +1,39 @@
+<form [formGroup]="cardForm">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field class="full-width">
+        <input matInput type="text" class="form-control" placeholder="Name on card" formControlName="nameOnCard" name="nameOnCard">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="full-width select-field">
+        <mat-select placeholder="Card type" formControlName="cardType">
+          <mat-option [value]="cardType" *ngFor="let cardType of cardTypes">{{cardType}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field class="full-width">
+        <input matInput type="text" class="form-control" placeholder="Card number" formControlName="cardNumber" name="cardNumber">
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field class="full-width  select-field">
+        <mat-select placeholder="Expiry month" formControlName="expiryMonth">
+          <mat-option [value]="expiryMonth" *ngFor="let expiryMonth of expiryMonths">{{expiryMonth}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field class="full-width">
+        <input matInput type="text" class="form-control" placeholder="Expiry year" formControlName="expiryYear" name="expiryYear">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="button-group">
+    <button type="submit" mat-raised-button color="primary" (click)="onSave()">Save Card</button>
+    <button type="button" mat-raised-button (click)="onCancel()">Cancel</button>
+  </div>
+</form>

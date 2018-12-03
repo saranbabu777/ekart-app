@@ -1,0 +1,24 @@
+<div class="container-fluid product-container">
+  <section class="todays-deals" *ngIf="!isSearch">
+    <h6 class="text-uppercase">Today's deals</h6>
+    <div id="deals" class="row">
+      <div class="col-md-3" *ngFor="let item of deals">
+        <app-product [product]="item"></app-product>
+      </div>
+    </div>
+  </section>
+  <div class="row" *ngIf="isSearch">
+    <mat-chip-list class="search-chip-block">
+      <mat-chip class="search-chip-text">{{searchCountTxt}}</mat-chip>
+    </mat-chip-list>
+
+  </div>
+  <section class="other-products">
+    <h6 class="text-uppercase">Other products</h6>
+    <div id="products" class="row">
+      <div class="col-md-3 products-block" *ngFor="let item of products">
+        <app-product [product]="item"></app-product>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,53 @@
+.item-container {
+  padding: 15px 0;
+  margin-bottom: 15px;
+  border-top: 1px solid #dddddd;
+
+  p {
+    font-size: 14px;
+  }
+
+  .button-group {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    .move-to-cart{
+      margin-right: 20px;
+    }
+  }
+
+  .count-form-fields {
+    max-width: 90px;
+
+    button {
+      min-width: 25px;
+      padding: 0 5px;
+    }
+
+    input {
+      text-align: center;
+    }
+  }
+
+  .item-rate-count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .product-rate {
+      font-size: 18px;
+    }
+    .rate-group{
+      display: flex;
+      align-items: center;
+      del{
+        margin: 0 10px;
+      }
+      .product-offer{
+        margin: 0;
+        color: #388e3c;
+        font-weight: 600;
+      }
+    }
+  }
+}

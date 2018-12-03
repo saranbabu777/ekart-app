@@ -1,0 +1,28 @@
+<div class="fav-list">
+  <div class="row" *ngIf="favItems.length>0 else emptyFav;">
+    <div class="col-lg-12  wishlist">
+      <mat-card>
+        <h6 class="text-uppercase">My wishlist ({{favItems.length}})</h6>
+        <div id="products" class="list-group">
+          <div class="item" *ngFor="let item of favItems; let i=index;">
+            <app-item [product]="item" (remove)="remove($event, i)"></app-item>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #emptyFav>
+    <mat-card>
+      <h6 class="text-uppercase">My wishlist ({{favItems.length}})</h6>
+      <div class="empty-cart">
+        <img src="assets/images/emptyCart.JPG" alt="" />
+      </div>
+      <div class="empty-cart">
+        Empty Wishlist
+      </div>
+      <div class="empty-cart add-btn">
+        <a mat-raised-button routerLink="/products">Start adding items</a>
+      </div>
+    </mat-card>
+  </ng-template>
+</div>

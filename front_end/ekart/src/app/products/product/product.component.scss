@@ -1,0 +1,20 @@
+.product{
+  cursor: pointer;
+  .product-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #dfdfdf;
+
+  .product-name {
+    font-size: 14px;
+    text-transform: uppercase;
+    padding-right: 5px;
+  }
+
+  .product-rate {
+    color: #222222;
+    font-weight: bold;
+  }
+}
+}

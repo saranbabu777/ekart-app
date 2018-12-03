@@ -1,0 +1,22 @@
+<div class="card-container">
+  <div class="add-new-card">
+    <button mat-raised-button (click)="addNewCard()">Add New Card</button>
+  </div>
+  <div *ngIf="cardForm" [formGroup]="cardForm">
+    <div formArrayName="cards">
+      <div *ngFor="let card of cards.controls; let i = index;">
+        <div class="card-content">
+          <div class="radio-block">
+            <mat-radio-button [value]="i" name="active" (change)="selectCard(i)"></mat-radio-button>
+          </div>
+          <div class="card-block">
+            <app-card [cardForm]="card" (delete)="removeCard(i)" [isEdit]="i===editableIndex" (save)="save()" (modify)="onModifyCard(i)"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="proceed-button">
+    <button mat-raised-button color="primary" (click)="onProceed()">Place order</button>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="notification-list">
+  <table mat-table [dataSource]="notifications" class="mat-elevation-z8">
+    <ng-container matColumnDef="notification order id">
+      <th mat-header-cell *matHeaderCellDef> Notification Order ID </th>
+      <td mat-cell *matCellDef="let notification"> {{notification.notificationID}} </td>
+    </ng-container>
+    <ng-container matColumnDef="notification text">
+      <th mat-header-cell *matHeaderCellDef> Notification Text </th>
+      <td mat-cell *matCellDef="let notification"> {{notification.notificationText}} </td>
+    </ng-container>
+    <ng-container matColumnDef="mark as read">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let notification; let i=index">
+        <button class="btn btn-danger btn-sm" (click)="markAsRead(i)" *ngIf="!notification.isRead">Mark As Read</button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="notificationColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: notificationColumns;"></tr>
+  </table>
+</div>

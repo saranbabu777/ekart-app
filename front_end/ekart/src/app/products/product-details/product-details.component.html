@@ -1,0 +1,85 @@
+<div class="product-details-block">
+  <div class="row">
+    <div class="col-lg-4">
+      <mat-card>
+        <div class="thumbnail" *ngIf="product.image">
+          <img mat-card-image class="full-width" src="assets/image/{{product.image}}.jpeg" alt="" />
+        </div>
+        <div class="button-group">
+          <button mat-raised-button color="primary" (click)="addToCart()">Add to Cart</button>
+          <button mat-raised-button>Buy Now</button>
+          <button mat-raised-button color="accent" (click)="addToWishlist()">Add to Wishlist</button>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-lg-8">
+      <mat-card>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            {{product.name}} {{product.brand}}
+          </h4>
+          <div class="ratings">
+            <span>
+              <star-rating class="star-rating-block" [starType]="'svg'" [rating]="product.avgRating" [readOnly]="true" [getColor]="getColor"></star-rating>
+            </span>
+            <span>{{avgRatingText}}</span>
+          </div>
+          <p class="group inner list-group-item-text">{{product.description}}</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <h3 class="lead">
+                ₹{{calcPrice(product.rate, product.discount)}}
+              </h3>
+              <p>
+                <del>₹{{product.rate}}</del>
+              </p>
+              <span>{{product.discount}}% off</span>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+      <mat-card class="product-card">
+        <div class="product-review">
+          <div>
+            <h6 class="text-uppercase">
+              <span>Ratings and Reviews </span>
+              <button mat-raised-button (click)="showReviewForm()">Rate this product</button>
+            </h6>
+            <div class="rating-form" *ngIf="reviewFormVisible">
+              <form [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+                <!-- Name input-->
+                <mat-form-field class="full-width">
+                  <input matInput id="title" name="title" type="text" formControlName="title" placeholder="Review Title">
+                </mat-form-field>
+                <!-- Message body -->
+                <mat-form-field class="full-width">
+                  <textarea matInput id="message" name="message" formControlName="comment" placeholder="Please enter your feedback here..."
+                    rows="3"></textarea>
+                </mat-form-field>
+                <!-- Rating -->
+                <div>
+                  <star-rating-control formControlName="rating" [getColor]="getColor"></star-rating-control>
+                </div>
+                <!-- Form actions -->
+                <button mat-raised-button type="submit" class="btn btn-primary btn-md">Submit Review</button>
+              </form>
+            </div>
+            <div>
+              <div class="customer-reviews">
+                <div class="row" *ngFor="let item of product.reviews">
+                  <div class="product-rating">
+                    <star-rating [starType]="'svg'" [rating]="item.rating" [readOnly]="true" [getColor]="getColor"></star-rating>
+                  </div>
+                  <div class="col-md-12 text-capitalize">
+                    <b>{{item.title}}</b>
+                  </div>
+                  <div class="col-md-12">{{item.comment}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.product-container {
+  h6 {
+    padding: 15px 0;
+  }
+
+  .todays-deals {
+    margin: 0 auto;
+    padding: 15px;
+  }
+
+  .other-products {
+    margin: 15px auto;
+    padding: 15px;
+
+    .products-block {
+      margin-bottom: 15px;
+    }
+  }
+
+  .search-chip-block {
+    padding: 0 25px;
+
+    .search-chip-text {
+      font-size: 16px;
+    }
+  }
+}

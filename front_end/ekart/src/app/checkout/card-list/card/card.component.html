@@ -1,0 +1,40 @@
+<div class="card-card">
+  <div class="card-block">
+    <div *ngIf="!isEdit else editForm;">
+      <div class="card-details">
+        <mat-chip-list>
+          <mat-chip>
+            {{cardForm['controls'].nameOnCard.value}}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div class="card-details">
+        <mat-chip-list>
+          <mat-chip>
+            {{cardForm['controls'].cardType.value}} {{cardForm['controls'].cardNumber.value}}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div class="card-details">
+        <mat-chip-list>
+          <mat-chip>
+            {{cardForm['controls'].expiryMonth.value}} {{cardForm['controls'].expiryYear.value}}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+    <div class="action-block">
+      <div class="button-group">
+        <button mat-raised-button color="primary" (click)="onModify()">
+          Edit
+        </button>
+        <button mat-raised-button color="warn" (click)="onDelete()">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <ng-template #editForm>
+    <app-card-form (cancelForm)="onDelete()" (saveForm)="saveForm()" [cardForm]="cardForm"></app-card-form>
+  </ng-template>
+</div>

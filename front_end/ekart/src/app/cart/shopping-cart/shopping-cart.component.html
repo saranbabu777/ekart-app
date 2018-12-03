@@ -1,0 +1,52 @@
+<div class="shopping-cart">
+  <div class="row" *ngIf="cartItems.length>0 else emptyCart;">
+    <div class=" col-lg-7">
+      <mat-card>
+        <h6 class="text-uppercase">my cart ({{cartItems.length}})</h6>
+        <div id="products" class="list-group">
+          <div class="item" *ngFor="let item of cartItems; let i=index;">
+            <app-item [product]="item" (remove)="removeFromCart($event, i)" (change)="updateCart(item)"></app-item>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-lg-5">
+      <mat-card>
+        <h6 class="text-uppercase">Price Details</h6>
+        <div class="price-details">
+          <div class="row">
+            <div class="col-lg-8">Price</div>
+            <div class="col-lg-4">{{price}}</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8">Delivery Charge</div>
+            <div class="col-lg-4">{{deliverCharge}}</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8">Amount Payable</div>
+            <div class="col-lg-4">{{price+deliverCharge}}</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col align-self-end">
+            <button (click)="placeOrder()" class="checkout-button" mat-raised-button color="primary">Checkout</button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #emptyCart>
+    <mat-card>
+      <h6 class="text-uppercase">my cart ({{cartItems.length}})</h6>
+      <div class="empty-cart">
+        <img src="assets/images/emptyCart.JPG" alt="" />
+      </div>
+      <div class="empty-cart">
+        Your Shopping Cart is empty
+      </div>
+      <div class="empty-cart add-btn">
+        <a mat-raised-button routerLink="/products">Add items to cart </a>
+      </div>
+    </mat-card>
+  </ng-template>
+</div>

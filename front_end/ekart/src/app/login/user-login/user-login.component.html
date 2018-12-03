@@ -1,0 +1,25 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <form [formGroup]="loginForm" (ngSubmit)="validateUser()" class="login-form">
+      <div class="login-form">
+        <img src="assets/avatar.png" class="avatar" />
+        <div>
+          <mat-form-field [floatLabel]="never" appearance="outline" class="full-width">
+            <input formControlName="username" matInput placeholder="Username" required>
+            <mat-error *ngIf="loginForm.controls.username.invalid">Username is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field [floatLabel]="never" appearance="outline" class="full-width">
+            <input formControlName="password" type="password" matInput placeholder="Password" required>
+            <mat-error *ngIf="loginForm.controls.username.invalid">Password is required</mat-error>
+          </mat-form-field>
+        </div>
+        <mat-error *ngIf="errorMessage" class="err-msg">{{errorMessage}}</mat-error>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Sign
+          in</button>
+      </div>
+      <a mat-raised-button routerLink="/user/registration" class="create-account">Create an account</a>
+    </form>
+  </mat-card>
+</div>

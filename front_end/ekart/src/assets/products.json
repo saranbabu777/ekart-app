@@ -1,0 +1,61 @@
+[
+    {
+        "productId": 1,
+        "category": "phone",
+        "name": "Vivo V9 Pro (Black, 6GB RAM, Snapdragon 660AIE)",
+        "color": "black",
+        "mrp": 19990,
+        "discount": 10,
+        "dealName": "Power deal",
+        "isProductInStock": true,
+        "noOfCustomersViewed": 1,
+        "images": []
+    },
+    {
+        "productId": 2,
+        "category": "phone",
+        "name": "Redmi 6 Pro (Black, 3GB RAM, 32GB Storage)",
+        "color": "black",
+        "mrp": 11499,
+        "discount": 5,
+        "dealName": "",
+        "isProductInStock": true,
+        "noOfCustomersViewed": 6,
+        "images": []
+    },
+    {
+        "productId": 3,
+        "category": "phone",
+        "name": "Honor 8X (Blue, 4GB RAM, 64GB Storage)",
+        "color": "blue",
+        "mrp": 17999,
+        "discount": 17,
+        "dealName": "Power deal",
+        "isProductInStock": true,
+        "noOfCustomersViewed": 5,
+        "images": []
+    },
+    {
+        "productId": 4,
+        "category": "phone",
+        "name": "Samsung Galaxy A9 (Caviar Black, 6GB RAM, 128GB Storage)",
+        "color": "caviar black",
+        "mrp": 39000,
+        "discount": 5,
+        "dealName": "Power deal",
+        "isProductInStock": true,
+        "noOfCustomersViewed": 11,
+        "images": []
+    },
+    {
+        "productId": 5,
+        "category": "phone",
+        "name": "OnePlus 6T (Mirror Black, 6GB RAM, 128GB Storage)",
+        "mrp": 37999,
+        "discount": 0,
+        "dealName": "",
+        "isProductInStock": true,
+        "noOfCustomersViewed": 20,
+        "images": []
+    }
+]

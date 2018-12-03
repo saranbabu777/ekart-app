@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light mat-elevation-z2 fixed-top">
+  <a class="navbar-brand" routerLink="/">EKart</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+    <div class="search-block">
+      <app-search></app-search>
+    </div>
+    <ul class="navbar-nav navbar-right">
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <button mat-button class="nav-btn" yPosition="below" [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseenter)="menuTrigger.openMenu()">My Account</button>
+        <mat-menu #menu="matMenu" class="menu-drop-panel">
+          <a mat-menu-item class="drop-menu" routerLink="/profile">
+            <mat-icon matSuffix>person</mat-icon>My Profile
+          </a>
+          <a mat-menu-item class="drop-menu" routerLink="/orders">
+            <mat-icon matSuffix>shop</mat-icon>Orders
+          </a>
+          <a mat-menu-item class="drop-menu" routerLink="/wishlist">
+            <mat-icon matSuffix>favorite</mat-icon>Wishlist
+          </a>
+          <a mat-menu-item class="drop-menu" routerLink="/notifications">
+            <mat-icon matSuffix>notifications</mat-icon>Notifications
+          </a>
+          <button mat-menu-item class="drop-menu" (click)="logout()">
+            <mat-icon matSuffix>power_settings_new</mat-icon>Logout
+          </button>
+        </mat-menu>
+      </li>
+      <li class="nav-item">
+        <a mat-button class="nav-link" routerLink="/cart" [routerLinkActive]="['active']">
+          <i class="fa fa-shopping-cart cart-size"></i> Cart ({{cartCount}})
+          <span class="caret"></span>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a mat-button class="nav-link" routerLink="/user/login" [routerLinkActive]="['active']">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
