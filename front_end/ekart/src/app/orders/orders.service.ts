@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AppSettingsService } from '../core/app-settings.service';
+import { CartService } from '../cart/services/cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class OrdersService {
   private baseUrl: string;
   private order: any;
 
-  constructor(private appSettings: AppSettingsService, private http: HttpClient) {
+  constructor(private appSettings: AppSettingsService, private http: HttpClient, private cartService: CartService) {
     this.baseUrl = this.appSettings.getApiUrl();
     this.order = {};
   }
@@ -38,10 +39,10 @@ export class OrdersService {
   create(order): Promise<any> {
     const url = this.baseUrl + 'orders/create';
     return this.http
-      .post(url, order, { headers: this.getHeaders(), observe: 'response', responseType: 'text' })
+      .post(url, order, { headers: this.getHeaders(), observe: 'response', responseType: 'json' })
       .toPromise()
       .then((response) => {
-        console.log(response);
+        this.cartService.setCartCount(response.body[ 'count' ]);
         return 'success';
       })
       .catch(this.handleError);

@@ -252,9 +252,14 @@ exports.createOrder = function (data, response) {
     data.active = true;
     db.orders.save(data, function (err, saved) {
         if (!err && saved) {
-            response.send(" saved data");
+            for (var i = 0; i < data.orderItems.length; i++) {
+                var item = data.orderItems[i];
+                /*Remove items from cart*/
+                db.cart.remove({ "productId": item.pid, "username": data.username });
+                exports.cartCount(data.username, response);
+            }
         } else {
-            response.send("error saving data");
+            response.json({ error: true });
         }
     })
 }
