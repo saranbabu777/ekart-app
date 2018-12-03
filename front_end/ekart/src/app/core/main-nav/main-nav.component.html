@@ -10,7 +10,10 @@
     </div>
     <ul class="navbar-nav navbar-right">
       <li class="nav-item" *ngIf="isLoggedIn">
-        <button mat-button class="nav-btn" yPosition="below" [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseenter)="menuTrigger.openMenu()">My Account</button>
+        <button mat-button class="nav-btn" yPosition="below" [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger">My Account
+          <mat-icon matSuffix *ngIf="!menuTrigger.menuOpen">expand_more</mat-icon>
+          <mat-icon matSuffix *ngIf="menuTrigger.menuOpen">expand_less</mat-icon>
+        </button>
         <mat-menu #menu="matMenu" class="menu-drop-panel">
           <a mat-menu-item class="drop-menu" routerLink="/profile">
             <mat-icon matSuffix>person</mat-icon>My Profile
