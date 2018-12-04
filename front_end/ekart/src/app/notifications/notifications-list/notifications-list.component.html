@@ -12,6 +12,7 @@
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let notification; let i=index">
         <button class="btn btn-danger btn-sm" (click)="markAsRead(i)" *ngIf="!notification.isRead">Mark As Read</button>
+        <mat-icon matSuffix *ngIf="notification.isRead" style="color:#2874f0;">check_circle</mat-icon>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="notificationColumns"></tr>

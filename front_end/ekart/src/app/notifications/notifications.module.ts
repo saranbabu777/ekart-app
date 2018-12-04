@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTableModule, MatCardModule } from '@angular/material';
+import { MatTableModule, MatCardModule, MatIconModule } from '@angular/material';
 
 import { NotificationsRoutingModule } from './notifications-routing.module';
 import { NotificationsListComponent } from './notifications-list/notifications-list.component';
@@ -11,6 +11,7 @@ import { NotificationsListComponent } from './notifications-list/notifications-l
     CommonModule,
     MatTableModule,
     MatCardModule,
+    MatIconModule,
     NotificationsRoutingModule
   ]
 })

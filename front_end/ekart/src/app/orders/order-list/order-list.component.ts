@@ -33,8 +33,9 @@ export class OrderListComponent implements OnInit {
   cancel(id) {
     const cancelledOrder = this.openOrders.find(order => order._id === id);
     cancelledOrder.status = 'cancelled';
-    this.refreshGrid();
-    this.ordersService.updateOrder(cancelledOrder);
+    this.ordersService.updateOrder(cancelledOrder).then(response =>{
+      this.refreshGrid();
+    });
     const orderItems = cancelledOrder.orderItems.map(item => item.name);
     const notification = {
       notificationID: cancelledOrder._id,
