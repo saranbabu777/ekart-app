@@ -6,6 +6,8 @@ import { MatCardModule, MatButtonModule, MatInputModule, MatIconModule } from '@
 import { CartRoutingModule } from './cart-routing.module';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ItemComponent } from './item/item.component';
+import { MessagesComponent } from '../core/messages/messages.component';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,14 @@ import { ItemComponent } from './item/item.component';
   ],
   imports: [
     CommonModule,
+    CoreModule,
     FormsModule,
     MatCardModule,
     MatButtonModule,
     MatInputModule,
     MatIconModule,
     CartRoutingModule
-  ]
+  ],
+  entryComponents: [ MessagesComponent ]
 })
 export class CartModule { }

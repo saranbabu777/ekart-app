@@ -3,6 +3,9 @@ import { CartService } from '../services/cart.service';
 import { UserService } from '../../profile/services/user.service';
 import { OrdersService } from '../../orders/orders.service';
 import { Router } from '@angular/router';
+import { MessagesComponent } from 'src/app/core/messages/messages.component';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -19,7 +22,9 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private cartService: CartService,
     private userService: UserService,
     private ordersService: OrdersService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog,
+    private cookieService: CookieService,
   ) {
     this.activeUser = this.userService.getActiveUser();
     this.cartItems = [];
@@ -39,7 +44,18 @@ export class ShoppingCartComponent implements OnInit {
 
   placeOrder() {
     this.ordersService.setOrderParams(this.cartItems, "orderItems");
-    this.router.navigate([ '/checkout' ]);
+    if (this.cookieService.get('activeUser')) {
+      this.router.navigate([ '/checkout' ]);
+    } else {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = 'Please login to  place order.';
+      let dialogRef = this.dialog.open(MessagesComponent, dialogConfig);
+      dialogRef.afterClosed().subscribe(
+        data => {
+          this.router.navigate([ './user/login' ]);
+        }
+      );
+    }
   }
 
   calcPriceDetails() {
