@@ -7,11 +7,18 @@
       </div>
     </div>
   </section>
+  <section class="todays-deals" *ngIf="!isSearch">
+    <h6 class="text-uppercase">Recommended products</h6>
+    <div id="deals" class="row">
+      <div class="col-md-3" *ngFor="let item of recommended">
+        <app-product [product]="item"></app-product>
+      </div>
+    </div>
+  </section>
   <div class="row" *ngIf="isSearch">
     <mat-chip-list class="search-chip-block result-padding">
       <mat-chip class="search-chip-text">{{searchCountTxt}}</mat-chip>
     </mat-chip-list>
-
   </div>
   <section class="other-products">
     <h6 class="text-uppercase">Other products</h6>

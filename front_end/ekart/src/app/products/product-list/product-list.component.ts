@@ -11,6 +11,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   public products: any;
   public deals: any;
+  public recommended: any;
   public isSearch: boolean;
   public searchCountTxt: string;
   private prodSubscription: Subscription;
@@ -30,6 +31,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
     const filter = { deal: true };
     this.productService.filterProducts(filter).then(response => {
       this.deals = response;
+    });
+    const recommended = { category: "cycle" };
+    this.productService.filterProducts(recommended).then(response => {
+      this.recommended = response;
     });
   }
 
