@@ -11,6 +11,7 @@ export class ProductService {
   private baseUrl: string;
   private products = new Subject<any>();
   private searchQuery = new Subject<boolean>();
+  public searchTxt: string = "";
 
   constructor(private appSettings: AppSettingsService, private http: HttpClient) {
     this.baseUrl = this.appSettings.getApiUrl();

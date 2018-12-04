@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   private searchSubscription: Subscription;
 
   constructor(private productService: ProductService) {
-    this.productService.search("");
+    this.productService.search(this.productService.searchTxt);
     this.prodSubscription = this.productService.getProducts().subscribe(response => {
       this.searchCountTxt = (response.length === 0) ? "no results " :
         ((response.length === 1) ? "1 result " : response.length + " results ");
