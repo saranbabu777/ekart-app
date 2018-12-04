@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from '@angular/comm
 import { AppSettingsService } from '../../core/app-settings.service';
 import { CartService } from '../../cart/services/cart.service';
 import { Subject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class UserService {
   constructor(private appSettings: AppSettingsService,
     private http: HttpClient,
     private cookieService: CookieService,
+    private router: Router,
     private cartService: CartService) {
     this.baseUrl = this.appSettings.getApiUrl();
   }
@@ -27,6 +29,7 @@ export class UserService {
     this.cartService.setCartCount(0);
     this.createGuest({ time: new Date() }).then((response) => {
       this.cookieService.set('guestUser', response, 1);/*Expires in 1 days*/
+      this.router.navigate([ './user/login' ]);
     });
   }
 
